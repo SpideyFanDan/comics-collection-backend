@@ -8,8 +8,8 @@ class ComicBook(models.Model):
     issue = models.CharField(max_length=25)
     publication_date = models.CharField(max_length=100)
     cover_url = models.TextField()
-    personal_image = models.ImageField(upload_to='images/')
-    notes = models.TextField()
+    personal_image = models.ImageField(upload_to='images/', required=False)
+    notes = models.TextField(required=False)
 
     def __str__(self):
         return self.title
