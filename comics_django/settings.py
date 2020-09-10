@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'comics',
     'django_extensions',
     'rest_framework',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -74,7 +75,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'comics_django.wsgi.application'
 
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -99,7 +101,13 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ]
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -119,3 +127,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+AUTH_USER_MODEL = 'users.User'
