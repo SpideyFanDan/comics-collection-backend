@@ -16,8 +16,8 @@ class ComicBookDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ComicBookSerializer
     parser_class = (FileUploadParser,)
 
-    def post(self, request, *args, **kwargs):
-
+    def post(self, request, pk, *args, **kwargs):
+        comicbook = get_object_or_404(Post, pk=pk)
         file_serializer = ComicBookSerializer(data=request.data)
 
         if file_serializer.is_valid():
