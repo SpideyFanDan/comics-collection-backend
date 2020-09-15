@@ -80,6 +80,11 @@ WSGI_APPLICATION = 'comics_django.wsgi.application'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "media"),
+    os.path.join(BASE_DIR, "assets"),
+    os.path.join(BASE_DIR, "resources"),
+)
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
